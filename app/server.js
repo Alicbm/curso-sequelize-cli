@@ -11,16 +11,18 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 //Rutas
-app.get('/', (req, res) => {
-  res.json('Hola mundo')
-})
+// app.get('/', (req, res) => {
+//   res.json('Hola mundo')
+// })
+
+app.use(require('./routes'))
 
 //Corremos el servidor
 app.listen(port, () => {
   console.log('Runing in ' + port);
 
   //conectamos a la db
-  sequelize.sync({ force: true }).then(() => {
+  sequelize.sync({ force: false }).then(() => {
     console.log('Se conectó correctamente...');
   }).catch((err) => {
     console.log('Hubo un problema en la conexion a la DB: ', err)

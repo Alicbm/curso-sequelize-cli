@@ -7,6 +7,12 @@ const config = {
   dbName: process.env.DB_DATABASE || 'cli',
   dbHost: process.env.DB_HOST || 'localhost',
   dbPort: process.env.DB_PORT || '3307',
+  define: {
+    timestamps: false,
+
+    //genera claves foraneas asi: user_id
+    underscored: true
+  }
 }
 
 module.exports = { config }
