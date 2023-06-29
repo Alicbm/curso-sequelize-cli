@@ -22,7 +22,7 @@ app.listen(port, () => {
   console.log('Runing in ' + port);
 
   //conectamos a la db
-  sequelize.sync({ force: false }).then(() => {
+  sequelize.sync({ force: true }).then(() => {
     console.log('Se conectó correctamente...');
   }).catch((err) => {
     console.log('Hubo un problema en la conexion a la DB: ', err)
